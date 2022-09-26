@@ -17,7 +17,6 @@ phases:
   post_build:
     commands:
       - echo "Update Kube Config"
-      - aws s3 ls
       - aws eks update-kubeconfig --name develop-cluster-nubity --region us-west-2
       - echo "Apply changes to kube manifests"
       - kubectl apply -f busybox-deployment.yaml
